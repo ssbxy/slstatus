@@ -65,10 +65,8 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-  { run_command, "NIC: %s | ", "cat /sys/class/net/enp6s0/operstate" },
-  //{ netspeed_rx, "%sB/s | ", "enp6s0"},
-  { cpu_perc, "CPU: %s%% | ", NULL },
-  //{ ram_perc, "MEM: %s%% | ", NULL },
-  { ram_used, "MEM: %s | ", NULL },
-	{ datetime, "%s",           "%F %T" },
+  { datetime, "%s", "%a, %e %b ;%T " },
+  //{ cpu_perc, " %s%% ", NULL },
+  //{ ram_used, " %s ", NULL },
+  { run_command, "%s ", "if [ $(cat /sys/class/net/enp6s0/operstate) = 'up' ]; then echo  ; else echo  ; fi" },
 };
